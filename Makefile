@@ -27,7 +27,9 @@ SRC_DIR	=	./src/
 Sources & objects
 ########################################################################################
 
-FILES	=	main	
+FILES	=	main		\
+			stack		\
+			stack_mgmt
 
 SRCS	=	$(addsuffix .c, $(FILES))
 OBJS	=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
