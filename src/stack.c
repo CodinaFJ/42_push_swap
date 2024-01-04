@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:56:27 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/04 18:25:18 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:36:30 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,14 @@ int	stack_push(t_stack_i *stack, int n)
     return (0);
 }
 
-int	stack_pop(t_stack_i *stack, int *error)
+int	stack_pop(t_stack_i *stack)
 {
     if (stack->top == 0)
     {
-        ft_printf("[ERROR] Stack underflow");
-        *error = 1;
-        return (0);
+        ft_printf("[ERROR] Stack underflow\n");
+        return (INT_MIN);
     }
     stack->top--;
-    *error = 0;
     return (stack->array[stack->top]);
 }
 
