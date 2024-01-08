@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:24:17 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:23:57 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:43:14 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ t_stack_i   *stack_new(size_t capacity, char id)
 
 void    stack_free(t_stack_i *stack)
 {
-    free(stack->array);
+    if (stack == NULL)
+        return ;
+    if (stack->array != NULL)
+        free(stack->array);
     free(stack);
 }
 

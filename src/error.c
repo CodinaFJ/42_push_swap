@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 15:14:42 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 15:57:17 by jcodina-         ###   ########.fr       */
+/*   Created: 2024/01/08 16:50:24 by jcodina-          #+#    #+#             */
+/*   Updated: 2024/01/08 16:55:09 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int is_number(char *str)
+void    exit_error_free_stacks(t_error error_type, char *msg,
+			t_stack_i *stack_a, t_stack_i *stack_b)
 {
-    int i;
-
-    i = 0;
-    if (str[i] == '-')
-        i++;
-    while (ft_isdigit(str[i]))
-    {
-        i++;
-        if (str[i] == '\0')
-            return (1);
-    }
-    return (0);
+	stack_free(stack_a);
+	stack_free(stack_b);
+	exit_error(error_type, msg);
 }
 
-int assert_is_numbers(char **strs)
+void    exit_error(t_error error_type, char *msg)
 {
-    int i;
-
-    i = 0;
-    while (strs[i] != NULL)
-    {
-        if (!is_number(strs[i]))
-            return (0);
-        i++;
-    }
-    return (1);
+	if (error_type == INPUT)
+		ft_printf("[INPUT_ERROR] %s", msg);
+	else if (error_type == MEMORY)
+		ft_printf("[MEMORY_ERROR] %s", msg);
+	else
+		ft_printf("[UNKOWN_ERROR] %s", msg);
+	ft_printf("\n");
+	exit(1);
 }

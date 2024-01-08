@@ -28,7 +28,9 @@ Sources & objects
 ########################################################################################
 
 FILES	=	main					\
-			parser					\
+			error					\
+			input					\
+			input_assert			\
 			stack					\
 			stack_operations		\
 			stack_rotate			\
