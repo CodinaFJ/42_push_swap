@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:04:15 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:34:30 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 /*   Typedefs															      */
 /* ************************************************************************** */
 
-typedef enum e_bool
+typedef enum e_rotate_direction
 {
-	true,
-	false
-}	t_bool;
+	FORWARD,
+	REVERSE
+}	t_rotate_direction;
 
 typedef struct s_stack_i
 {

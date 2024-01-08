@@ -6,42 +6,42 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:03:18 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:07:25 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:34:23 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    _rotate(t_stack_i *stack, t_bool reverse)
+void    _rotate(t_stack_i *stack, t_rotate_direction direction)
 {
-    if (reverse == false)
+    if (direction == FORWARD)
         stack_push_bottom(stack, stack_pop(stack));
-    else
+    else if (direction == REVERSE)
         stack_push(stack, stack_pop_bottom(stack));
 }
 
 void    rotate(t_stack_i *stack)
 {
     ft_printf("r%c\n", stack->id);
-    _rotate(stack, false);
+    _rotate(stack, FORWARD);
 }
 
 void    r_rotate(t_stack_i *stack)
 {
     ft_printf("rr%c\n", stack->id);
-    _rotate(stack, true);
+    _rotate(stack, REVERSE);
 }
 
 void    rrotate(t_stack_i *stack_a, t_stack_i *stack_b)
 {
     ft_printf("rr\n");
-    _rotate(stack_a, false);
-    _rotate(stack_b, false);
+    _rotate(stack_a, FORWARD);
+    _rotate(stack_b, FORWARD);
 }
 
 void    r_rrotate(t_stack_i *stack_a, t_stack_i *stack_b)
 {
     ft_printf("rrr\n");
-    _rotate(stack_a, true);
-    _rotate(stack_b, true);
+    _rotate(stack_a, REVERSE);
+    _rotate(stack_b, REVERSE);
 }
