@@ -29,9 +29,9 @@ Sources & objects
 
 FILES	=	main					\
 			stack					\
-			stack_pushpopclear		\
 			stack_operations		\
-			stack_operations_mirror
+			stack_rotate			\
+			stack_pushswap
 
 SRCS	=	$(addsuffix .c, $(FILES))
 OBJS	=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))

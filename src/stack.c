@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:24:17 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 12:19:40 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 12:59:44 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void stack_print(t_stack_i *stack)
 	ft_printf("----------\n");
 }
 
-t_stack_i   *stack_new(size_t capacity)
+t_stack_i   *stack_new(size_t capacity, char id)
 {
     t_stack_i   *stack;
 
@@ -52,6 +52,7 @@ t_stack_i   *stack_new(size_t capacity)
         return (NULL);
     }
     ft_bzero(stack->array, sizeof(int) * capacity);
+    stack->id = id;
     stack->size = 0;
     stack->top = 0;
     stack->bottom = 0;
