@@ -5,74 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 17:56:27 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 12:13:26 by jcodina-         ###   ########.fr       */
+/*   Created: 2024/01/04 18:24:17 by jcodina-          #+#    #+#             */
+/*   Updated: 2024/01/08 12:19:40 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/push_swap.h"
+#include "../include/push_swap.h"
 
-int	stack_push(t_stack_i *stack, int n)
+void stack_print(t_stack_i *stack)
 {
-    if (stack->size == stack->capacity)
-    {
-        ft_printf("[ERROR] Stack overflow");
-        return (1);
-    }
-    if (stack->size > 0)
-        stack->top = (stack->top + 1) % stack->capacity;
-    stack->array[stack->top] = n;
-    stack->size++;
-    return (0);
-}
-
-int	stack_push_bottom(t_stack_i *stack, int n)
-{
-    if (stack->size == stack->capacity)
-    {
-        ft_printf("[ERROR] Stack overflow");
-        return (1);
-    }
-    if (stack->bottom == 0 && stack->size > 0)
-        stack->bottom = stack->capacity - 1;
-    else if (stack-> size > 0)
-        stack->bottom--;
-    stack->array[stack->bottom] = n;
-    stack->size++;
-    return (0);
-}
-
-int	stack_pop(t_stack_i *stack)
-{
-    int value;
+	size_t	i;
+    int     size;
     
-    if (stack->size == 0)
-    {
-        ft_printf("[ERROR] Stack underflow\n");
-        return (INT_MIN);
-    }
-    value = stack->array[stack->top];
-    if (stack->top == 0)
-        stack->top = stack->capacity - 1;
-    else
-        stack->top--;
-    stack->size--;
-    return (value);
+    size = stack->size;
+	i = stack->top;
+	ft_printf("\nPRINT STACK\n----------\n");
+	if (size == 0)
+		ft_printf("stack empty\n");
+	else
+	{
+		while (size > 0)
+		{
+			ft_printf("%d\n", stack->array[i]);
+            size--;
+            if (i == 0)
+                i = stack->capacity - 1;
+            else
+			    i--;
+		}
+	}
+	ft_printf("----------\n");
 }
 
-int	stack_pop_bottom(t_stack_i *stack)
+t_stack_i   *stack_new(size_t capacity)
 {
-    int value;
-    
-    if (stack->size == 0)
+    t_stack_i   *stack;
+
+    stack = malloc(sizeof(t_stack_i));
+    if (!stack)
+        return (NULL);
+    stack->capacity  = capacity;
+    stack->array = malloc(sizeof(int) * capacity);
+    if (stack->array == NULL)
     {
-        ft_printf("[ERROR] Stack underflow\n");
-        return (INT_MIN);
+        free(stack);
+        return (NULL);
     }
-    value = stack->array[stack->bottom];
-    stack->bottom = (stack->bottom + 1) % stack->capacity;
-    stack->size--;
-    return (value);
+    ft_bzero(stack->array, sizeof(int) * capacity);
+    stack->size = 0;
+    stack->top = 0;
+    stack->bottom = 0;
+    return (stack);
+}
+
+void    stack_free(t_stack_i *stack)
+{
+    free(stack->array);
+    free(stack);
 }
 
 int stack_is_empty(t_stack_i* stack)
@@ -83,11 +72,4 @@ int stack_is_empty(t_stack_i* stack)
 int stack_is_full(t_stack_i* stack)
 {
 	return (stack->size == stack->capacity);
-}
-
-void stack_clear(t_stack_i* stack)
-{
-	stack->top = 0;
-    stack->bottom = 0;
-    stack->size = 0;
 }
