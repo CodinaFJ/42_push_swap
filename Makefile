@@ -28,6 +28,7 @@ Sources & objects
 ########################################################################################
 
 FILES	=	main					\
+			parser					\
 			stack					\
 			stack_operations		\
 			stack_rotate			\

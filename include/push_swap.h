@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:34:30 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:35:34 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ void    	r_rotate(t_stack_i *stack);
 void    	sswap(t_stack_i *stack_a, t_stack_i *stack_b);
 void    	rrotate(t_stack_i *stack_a, t_stack_i *stack_b);
 void    	r_rrotate(t_stack_i *stack_a, t_stack_i *stack_b);
+
+
+int assert_is_numbers(char **strs);
 
 #endif

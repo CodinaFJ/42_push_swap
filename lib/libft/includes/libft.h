@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:11:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/03 09:21:33 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:44:06 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int				ft_putnbrlen_base(long long nbr, char *base);
 void			*free_darray(void **strs, int n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_atoi(const char *nptr);
+long long		ft_atol(const char *nptr);
 char			*ft_itoa(const int n);
 char			*ft_uitoa(const unsigned int n);
 
@@ -146,6 +147,7 @@ void			ft_strscpy(char **dst, const char **src);
 void			ft_strsncpy(char **dst, char **src, int row);
 char			*ft_strs_add_line(const char *str, char **strs);
 void			ft_strs_clear(char **strs);
+void			ft_strs_free(char **strs);
 char			**ft_strsdup(const char **strs);
 
 #endif

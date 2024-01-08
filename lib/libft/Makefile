@@ -77,6 +77,7 @@ STDIO_FILES =	ft_putchar_fd	\
 STDLIB_FILES =	frees 		\
 				ft_calloc	\
 				ft_atoi		\
+				ft_atol		\
 				ft_itoa		
 
 STRING_FILES =	ft_memcmp	\
@@ -116,6 +117,7 @@ STRSMTRX_FILES =	ft_strs_add_line	\
 					ft_strs_rowcmp		\
 					ft_strschr			\
 					ft_strscpy			\
+					ft_strs_free		\
 					ft_strsdup
 
 
