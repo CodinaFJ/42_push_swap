@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:51:10 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:14:46 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:23:02 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,32 @@ int main(int argc, char **argv)
 {
     (void) argc;
     (void) argv;
-    t_stack_i *stack = stack_new(5, 'a');
+    t_stack_i *stack_a = stack_new(10, 'a');
+    t_stack_i *stack_b = stack_new(10, 'b');
 
-    ft_printf("Is stack empty? %d\n", stack_is_empty(stack));
-    stack_push_bottom(stack, 2);
-    stack_push_bottom(stack, 55);
-    stack_push(stack, -8);
-    stack_push(stack, -100);
+    stack_push(stack_a, 1);
+    stack_push(stack_a, 2);
+    stack_push(stack_a, 3);
+    stack_push(stack_a, 4);
+    stack_push(stack_a, 5);
+    stack_push(stack_a, 6);
+    stack_push(stack_a, 7);
+    stack_push(stack_a, 8);
     
-    stack_print(stack);
-    stack_push_bottom(stack, 666);
-    stack_print(stack);
-    swap(stack);
-    stack_print(stack);
-    ft_printf("Is stack empty? %d\n", stack_is_empty(stack));
-    ft_printf("Stack pop: %d\n", stack_pop(stack));
-    ft_printf("Is stack empty? %d\n", stack_is_empty(stack));
-    stack_clear(stack);
-    stack_print(stack);
-    ft_printf("Is stack empty? %d\n", stack_is_empty(stack));
-    stack_free(stack);
+    push(stack_b, stack_a);
+    swap(stack_a);
+    push(stack_b, stack_a);
+    stack_print(stack_a);
+    stack_print(stack_b);
+    r_rotate(stack_a);
+    /*push(stack_b, stack_a);
+    sswap(stack_a, stack_b);
+    push(stack_a, stack_b);*/
+
+    stack_print(stack_a);
+    stack_print(stack_b);
+    
+    stack_free(stack_a);
+    stack_free(stack_b);
     return (0);
 }

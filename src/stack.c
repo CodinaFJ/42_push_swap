@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:24:17 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 12:59:44 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:23:57 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void stack_print(t_stack_i *stack)
     
     size = stack->size;
 	i = stack->top;
-	ft_printf("\nPRINT STACK\n----------\n");
+	ft_printf("\nPRINT STACK %c\n----------\n", stack->id);
 	if (size == 0)
 		ft_printf("stack empty\n");
 	else
