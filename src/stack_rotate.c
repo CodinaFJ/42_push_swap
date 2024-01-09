@@ -6,13 +6,13 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:03:18 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:34:23 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:32:14 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    _rotate(t_stack_i *stack, t_rotate_direction direction)
+static void    _rotate(t_stack_i *stack, t_rotate_direction direction)
 {
     if (direction == FORWARD)
         stack_push_bottom(stack, stack_pop(stack));

@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:44:56 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 17:04:17 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:33:33 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ char	***input_parse(int argc, char **argv, int *size_nums)
 	i = 0;
 	input = ft_calloc(argc, sizeof(char **));
 	if (input == NULL)
-		exit_error(MEMORY, "Cannot allocate input");
+		exit_error(MEMORY, "Error");
 	input[argc - 1] = NULL;
 	while (i < argc - 1)
 	{
 		input[i] = ft_split(argv[i + 1], ' ');
 		if (input[i] == NULL)
-			exit_error(MEMORY, "Cannot allocate & split input");
+			exit_error(MEMORY, "Error");
 		else if (!assert_is_numbers(input[i]))
 		{
 			input_free(input);
-			exit_error(INPUT, "Only numbers accepted");
+			exit_error(INPUT, "Error");
 		}
 		(*size_nums) += ft_strs_rows((const char **) input[i]);
 		i++;

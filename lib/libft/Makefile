@@ -27,6 +27,15 @@ STDLIB_DIR =	stdlib/
 STRING_DIR =	string/
 STRMTRX_DIR =	strsmatrix/
 
+BIN_DIRS	=	$(addprefix $(BIN_DIR), $(ARRAY_DIR))		\
+				$(addprefix $(BIN_DIR), $(STRMTRX_DIR))	\
+				$(addprefix $(BIN_DIR), $(CTYPE_DIR))		\
+				$(addprefix $(BIN_DIR), $(LIST_DIR))		\
+				$(addprefix $(BIN_DIR), $(MATH_DIR))		\
+				$(addprefix $(BIN_DIR), $(STDIO_DIR))		\
+				$(addprefix $(BIN_DIR), $(STDLIB_DIR))		\
+				$(addprefix $(BIN_DIR), $(STRING_DIR))		\
+
 
 ########################################################################################\
 Sources & objects for Libft
@@ -158,9 +167,10 @@ $(NAME): $(OBJS)
 	@echo "\n$(G)Library compiled!$(DEF_COLOR)-> $@\n"
 
 $(BIN_DIR)%.o:$(SRC_DIR)%.c
+	@mkdir -p $(BIN_DIRS)
 	@echo "$(Y)Compiling: $< $(DEF_COLOR)"
 	@$(CC) $(CFLAGS) -I$(HDR_DIR) -c $< -o $@
-
+	
 bonus: $(OBJS) $(BOBJS)
 	@$(AR) $(NAME) $(OBJS) $(BOBJS)
 	@echo "\n$(G)Library with bonus compiled!$(DEF_COLOR)-> $(NAME)\n"

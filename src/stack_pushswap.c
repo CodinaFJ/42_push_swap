@@ -6,13 +6,13 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:23:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 13:16:14 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:31:57 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    _swap(t_stack_i *stack)
+static void    _swap(t_stack_i *stack)
 {
     int aux_value;
     int second_top;

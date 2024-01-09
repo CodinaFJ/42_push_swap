@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:50:24 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 16:55:09 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:34:38 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void    exit_error_free_stacks(t_error error_type, char *msg,
 void    exit_error(t_error error_type, char *msg)
 {
 	if (error_type == INPUT)
-		ft_printf("[INPUT_ERROR] %s", msg);
+		ft_printf("%s", msg);
 	else if (error_type == MEMORY)
-		ft_printf("[MEMORY_ERROR] %s", msg);
+		ft_printf("%s", msg);
 	else
-		ft_printf("[UNKOWN_ERROR] %s", msg);
+		ft_printf("%s", msg);
 	ft_printf("\n");
 	exit(1);
 }
