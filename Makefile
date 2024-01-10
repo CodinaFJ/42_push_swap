@@ -31,6 +31,7 @@ FILES	=	main					\
 			error					\
 			input					\
 			input_assert			\
+			sort					\
 			stack_arithmetic		\
 			stack					\
 			stack_operations		\

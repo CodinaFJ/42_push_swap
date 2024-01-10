@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:17:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 12:06:12 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:44:38 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,19 @@ int			stack_is_empty(t_stack_i *stack);
 int			stack_is_full(t_stack_i *stack);
 void		stack_clear(t_stack_i *stack);
 
+/*									STACK OPERATIONS						  */
+
+int			stack_push(t_stack_i *stack, int n);
+int			stack_push_bottom(t_stack_i *stack, int n);
+int			stack_pop(t_stack_i *stack);
+int			stack_pop_bottom(t_stack_i *stack);
+
 /*									STACK ARITHMETIC						  */
 
 int			stack_find_index(
 				t_stack_i *stack,
 				enum e_bool (*cmp)(int winner, int candidate));
 void		stack_normalize(t_stack_i *stack);
+t_bool		stack_cmp_str(t_stack_i *stack, char *str);
 
 #endif

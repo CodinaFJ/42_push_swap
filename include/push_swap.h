@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 12:07:08 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:48:43 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../lib/libft/includes/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "stack.h"
+# include "sort.h"
 
 /* ************************************************************************** */
 /*   Typedefs															      */
@@ -48,14 +49,8 @@ typedef enum e_rotate_direction
 /*   Functions															      */
 /* ************************************************************************** */
 
-/*									STACK OPERATIONS						  */
-
-int			stack_push(t_stack_i *stack, int n);
-int			stack_push_bottom(t_stack_i *stack, int n);
-int			stack_pop(t_stack_i *stack);
-int			stack_pop_bottom(t_stack_i *stack);
-
 /*									STACK PUSH SWAP ROTATE					  */
+
 void    	swap(t_stack_i *stack);
 void    	push(t_stack_i *stack_dst, t_stack_i *stack_src);
 void    	rotate(t_stack_i *stack);
@@ -69,11 +64,17 @@ void    	r_rrotate(t_stack_i *stack_a, t_stack_i *stack_b);
 t_stack_i	*input_to_stack(char ***input, int size);
 char		***input_parse(int argc, char **argv, int *size_nums);
 void		input_free(char ***input);
+void		extract_valid_input(int argc, char **argv, t_stack_i **stack_a, t_stack_i **stack_b);
 
 /*									INPUT ASSERT							  */
 
 t_bool		assert_is_numbers(char **strs);
 t_bool		assert_no_repeated(t_stack_i *norm_stack);
+
+/*									SORT									  */
+
+void    	sort_2(t_stack_i *stack);
+void    	sort_3(t_stack_i *stack);
 
 /*									ERROR									  */
 

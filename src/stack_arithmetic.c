@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:59:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 11:58:09 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:53:09 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,26 @@ int stack_find_index(t_stack_i *stack, enum e_bool (*cmp)(int winner, int candid
 		i++;
 	}
 	return (winner);
+}
+
+t_bool	stack_cmp_str(t_stack_i *stack, char *str)
+{
+	char	**strs;
+	size_t	i;
+	int		index;
+
+	i = 0;
+	strs = ft_split(str, ' ');
+	if (strs == NULL)
+		return (false);
+	while (i < stack->size && strs[i] != NULL)
+	{
+		index = (stack->top - i - 1) % stack->capacity;
+		if (stack->array[index] != strs[i][0] - '0')
+			return (false);
+		i++;
+	}
+	return (true);
 }
 
 static int	how_many_lower(t_stack_i *stack, int value)

@@ -6,32 +6,39 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:51:10 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 12:10:44 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:53:30 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+void    sort(t_stack_i *stack_a, t_stack_i *stack_b)
+{
+    (void) stack_a;
+    (void) stack_b;
+
+    if (stack_a->size == 2)
+        sort_2(stack_a);
+    else if (stack_a->size == 3)
+        sort_3(stack_a);
+}
+
+void    end_program(t_stack_i *stack_a, t_stack_i *stack_b)
+{
+    stack_free(stack_a);
+    stack_free(stack_b);
+    exit(0);
+}
+
 int main(int argc, char **argv)
 {
     t_stack_i	*stack_a;
     t_stack_i	*stack_b;
-    int			size;
-    char		***input;
     
-    if (argc == 1)
-        return (1);
-    input = input_parse(argc, argv, &size);
-    stack_a = input_to_stack(input, size);
-    stack_normalize(stack_a);
-    stack_b = stack_new(size, 'b');
-	input_free(input);
-	if (stack_a == NULL || stack_b == NULL || stack_a->size == 0)
-		exit_error_free_stacks(MEMORY, "Error", stack_a, stack_b);
-    if (!assert_no_repeated(stack_a))
-        exit_error_free_stacks(INPUT, "Error", stack_a, stack_b);
-    stack_print(stack_a);
-    stack_free(stack_a);
-    stack_free(stack_b);
+    extract_valid_input(argc, argv, &stack_a, &stack_b);
+    //stack_print(stack_a);
+    sort(stack_a, stack_b);
+    //stack_print(stack_a);
+    end_program(stack_a, stack_b);
     return (0);
 }

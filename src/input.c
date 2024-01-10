@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:44:56 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 12:08:16 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:52:42 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,22 @@ t_stack_i	*input_to_stack(char ***input, int size)
 		i++;
 	}
 	return (stack);
+}
+
+void	extract_valid_input(int argc, char **argv, t_stack_i **stack_a, t_stack_i **stack_b)
+{
+	int			size;
+    char		***input;
+	
+	if (argc == 1)
+        exit(1);
+    input = input_parse(argc, argv, &size);
+    *stack_a = input_to_stack(input, size);
+    stack_normalize(*stack_a);
+    *stack_b = stack_new(size, 'b');
+	input_free(input);
+	if (*stack_a == NULL || *stack_b == NULL || (*stack_a)->size == 0)
+		exit_error_free_stacks(MEMORY, "Error", *stack_a, *stack_b);
+    if (!assert_no_repeated(*stack_a))
+        exit_error_free_stacks(INPUT, "Error", *stack_a, *stack_b);
 }
