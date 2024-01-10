@@ -6,13 +6,13 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:14:42 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 16:47:06 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:07:40 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int is_number(char *str)
+static t_bool is_number(char *str)
 {
     int i;
 
@@ -23,12 +23,12 @@ static int is_number(char *str)
     {
         i++;
         if (str[i] == '\0')
-            return (1);
+            return (true);
     }
-    return (0);
+    return (false);
 }
 
-int assert_is_numbers(char **strs)
+t_bool assert_is_numbers(char **strs)
 {
     int i;
 
@@ -36,8 +36,32 @@ int assert_is_numbers(char **strs)
     while (strs[i] != NULL)
     {
         if (!is_number(strs[i]))
-            return (0);
+            return (false);
         i++;
     }
-    return (1);
+    return (true);
+}
+
+t_bool	assert_no_repeated(t_stack_i *norm_stack)
+{
+    size_t 	i;
+    t_bool	*seen;
+    int		index;
+    
+    i = 0;
+    seen = ft_calloc(norm_stack->size, sizeof(t_bool));
+	ft_bzero(seen, norm_stack->size * sizeof(t_bool));
+    while (i < norm_stack->size)
+    {
+        index = (norm_stack->bottom + i) % norm_stack->capacity;
+        if (seen[norm_stack->array[index]] == true)
+		{
+			free(seen);
+			return (false);
+		}
+		else
+			seen[norm_stack->array[index]] = true;
+        i++;
+    }
+	return (true);
 }

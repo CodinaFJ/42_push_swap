@@ -6,11 +6,11 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:24:17 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 16:43:14 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:29:28 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/stack.h"
 
 void stack_print(t_stack_i *stack)
 {

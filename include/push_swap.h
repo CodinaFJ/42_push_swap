@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 16:56:09 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:07:08 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,20 @@
 # include <limits.h>
 # include "../lib/libft/includes/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
+# include "stack.h"
 
 /* ************************************************************************** */
 /*   Typedefs															      */
 /* ************************************************************************** */
+
+# ifndef _E_BOOL
+#  define _E_BOOL
+	typedef enum e_bool
+	{
+		false = 0,
+		true = 1
+	}	t_bool;
+#endif
 
 typedef enum e_error
 {
@@ -33,23 +43,6 @@ typedef enum e_rotate_direction
 	FORWARD,
 	REVERSE
 }	t_rotate_direction;
-
-typedef struct s_stack_i
-{
-	char	id;
-	int		top;
-	int		bottom;
-	size_t  size;
-	size_t	capacity;
-	int		*array;
-}	t_stack_i;
-
-t_stack_i	*stack_new(size_t size, char id);
-void		stack_free(t_stack_i *stack);
-void		stack_print(t_stack_i *stack);
-int			stack_is_empty(t_stack_i *stack);
-int			stack_is_full(t_stack_i *stack);
-void		stack_clear(t_stack_i *stack);
 
 /* ************************************************************************** */
 /*   Functions															      */
@@ -79,7 +72,8 @@ void		input_free(char ***input);
 
 /*									INPUT ASSERT							  */
 
-int			assert_is_numbers(char **strs);
+t_bool		assert_is_numbers(char **strs);
+t_bool		assert_no_repeated(t_stack_i *norm_stack);
 
 /*									ERROR									  */
 
