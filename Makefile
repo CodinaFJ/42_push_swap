@@ -32,11 +32,13 @@ FILES	=	main					\
 			input					\
 			input_assert			\
 			sort					\
+			sort_precomp			\
 			stack_arithmetic		\
 			stack					\
 			stack_operations		\
 			stack_rotate			\
-			stack_pushswap
+			stack_pushswap			\
+			stack_exec_moves
 
 SRCS	=	$(addsuffix .c, $(FILES))
 OBJS	=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))

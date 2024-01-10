@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 13:48:43 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:13:22 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../lib/libft/includes/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "stack.h"
-# include "sort.h"
+# include "sort_precomp.h"
 
 /* ************************************************************************** */
 /*   Typedefs															      */
@@ -71,15 +71,22 @@ void		extract_valid_input(int argc, char **argv, t_stack_i **stack_a, t_stack_i 
 t_bool		assert_is_numbers(char **strs);
 t_bool		assert_no_repeated(t_stack_i *norm_stack);
 
-/*									SORT									  */
-
-void    	sort_2(t_stack_i *stack);
-void    	sort_3(t_stack_i *stack);
-
 /*									ERROR									  */
 
 void    	exit_error(t_error error_type, char *msg);
 void    	exit_error_free_stacks(t_error error_type, char *msg,
 				t_stack_i *stack_a, t_stack_i *stack_b);
+
+/*									STACK EXECUTE MOVES						  */
+
+void    	stack_execute_moves(t_stack_i *stack_a, t_stack_i *stack_b, char *str);
+void		stack_execute_move(t_stack_i *stack_a, t_stack_i *stack_b, char *str);
+
+/*									SORT									  */
+
+void    	sort(t_stack_i *stack_a, t_stack_i *stack_b);
+t_bool		stack_is_sorted(t_stack_i *stack_norm);
+void    	sort_3(t_stack_i *stack);
+void    	sort_2(t_stack_i *stack);
 
 #endif

@@ -6,16 +6,12 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:59:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 13:53:09 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:13:41 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/stack.h"
 
-/**
- * Returns index of value that makes cmp return true
- * when applied with all others.
-*/
 int stack_find_index(t_stack_i *stack, enum e_bool (*cmp)(int winner, int candidate))
 {
     size_t	i;
