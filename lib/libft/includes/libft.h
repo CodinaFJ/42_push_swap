@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:11:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 15:44:06 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:19:23 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int				ft_min(int n1, int n2);
 long long		ft_minl(long long n1, long long n2);
 int				ft_pow(const int base, const int power);
 long long		ft_powl(const long long base, const long long power);
+int				ft_abs(int n);
+long long		ft_abs_l(long long n);
 
 /*							STANDARD_INPUT_OUTPUT							*/
 

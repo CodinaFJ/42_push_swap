@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:44:56 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 12:52:42 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:59:20 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	input_free(char ***input)
 	free(input);
 }
 
-char	***input_parse(int argc, char **argv, int *size_nums)
+char	***input_parse(int argc, char **argv, size_t *size_nums)
 {
 	int 	i;
 	char	***input;
@@ -54,13 +54,13 @@ char	***input_parse(int argc, char **argv, int *size_nums)
 			input_free(input);
 			exit_error(INPUT, "Error");
 		}
-		(*size_nums) += ft_strs_rows((const char **) input[i]);
+		(*size_nums) += (size_t) ft_strs_rows((const char **) input[i]);
 		i++;
 	}
 	return (input);
 }
 
-t_stack_i	*input_to_stack(char ***input, int size)
+t_stack_i	*input_to_stack(char ***input, size_t size)
 {
 	int         i;
 	int         j;
@@ -79,7 +79,7 @@ t_stack_i	*input_to_stack(char ***input, int size)
 			num = ft_atol(input[i][j]);
 			if (num > INT_MAX || num < INT_MIN)
 				exit_error_free_stacks(INPUT, "Only int accepted", stack, NULL);
-			stack_push_bottom(stack, (int) num);
+			stack_push_bottom(stack, num);
 			j++;
 		}
 		i++;
@@ -89,7 +89,7 @@ t_stack_i	*input_to_stack(char ***input, int size)
 
 void	extract_valid_input(int argc, char **argv, t_stack_i **stack_a, t_stack_i **stack_b)
 {
-	int			size;
+	size_t		size;
     char		***input;
 	
 	if (argc == 1)
@@ -100,7 +100,11 @@ void	extract_valid_input(int argc, char **argv, t_stack_i **stack_a, t_stack_i *
     *stack_b = stack_new(size, 'b');
 	input_free(input);
 	if (*stack_a == NULL || *stack_b == NULL || (*stack_a)->size == 0)
+	{
 		exit_error_free_stacks(MEMORY, "Error", *stack_a, *stack_b);
+	}
     if (!assert_no_repeated(*stack_a))
+	{
         exit_error_free_stacks(INPUT, "Error", *stack_a, *stack_b);
+	}
 }

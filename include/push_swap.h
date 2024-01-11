@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 15:13:22 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:14:19 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,38 @@ typedef enum e_rotate_direction
 	REVERSE
 }	t_rotate_direction;
 
+typedef enum e_turk_moves
+{
+	RARB,
+	RRARRB,
+	RARRB,
+	RRARB
+}	t_turk_moves;
+
+typedef struct s_n_moves
+{
+	size_t	pa;
+	size_t	pb;
+	size_t	sa;
+	size_t	sb;
+	size_t	ss;
+	size_t	ra;
+	size_t	rb;
+	size_t	rr;
+	size_t	rra;
+	size_t	rrb;
+	size_t	rrr;
+}	t_n_moves;
+
+typedef struct s_moves_combs
+{
+	size_t	ra_rb;
+	size_t	rra_rrb;
+	size_t	ra_rrb;
+	size_t	rra_rb;
+}	t_moves_combs;
+
+
 /* ************************************************************************** */
 /*   Functions															      */
 /* ************************************************************************** */
@@ -61,8 +93,8 @@ void    	r_rrotate(t_stack_i *stack_a, t_stack_i *stack_b);
 
 /*									INPUT									*/
 
-t_stack_i	*input_to_stack(char ***input, int size);
-char		***input_parse(int argc, char **argv, int *size_nums);
+t_stack_i	*input_to_stack(char ***input, size_t size);
+char		***input_parse(int argc, char **argv, size_t *size_nums);
 void		input_free(char ***input);
 void		extract_valid_input(int argc, char **argv, t_stack_i **stack_a, t_stack_i **stack_b);
 
@@ -80,6 +112,7 @@ void    	exit_error_free_stacks(t_error error_type, char *msg,
 /*									STACK EXECUTE MOVES						  */
 
 void    	stack_execute_moves(t_stack_i *stack_a, t_stack_i *stack_b, char *str);
+void    	stack_execute_move_rep(t_stack_i *stack_a, t_stack_i *stack_b, char *str, size_t n);
 void		stack_execute_move(t_stack_i *stack_a, t_stack_i *stack_b, char *str);
 
 /*									SORT									  */
@@ -87,6 +120,8 @@ void		stack_execute_move(t_stack_i *stack_a, t_stack_i *stack_b, char *str);
 void    	sort(t_stack_i *stack_a, t_stack_i *stack_b);
 t_bool		stack_is_sorted(t_stack_i *stack_norm);
 void    	sort_3(t_stack_i *stack);
+void    	sort_3_normalized(t_stack_i *stack);
 void    	sort_2(t_stack_i *stack);
+void		sort_turk(t_stack_i *stack_a, t_stack_i *stack_b);
 
 #endif

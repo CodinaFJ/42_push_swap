@@ -6,17 +6,17 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:56:27 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 11:24:08 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:12:20 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/stack.h"
 
-int	stack_push(t_stack_i *stack, int n)
+int	stack_push(t_stack_i *stack, long long n)
 {
     if (stack->size == stack->capacity)
     {
-        ft_printf("[ERROR] Stack overflow");
+        ft_printf("[ERROR] Stack overflow\n");
         return (1);
     }
     if (stack->size > 0)
@@ -26,11 +26,11 @@ int	stack_push(t_stack_i *stack, int n)
     return (0);
 }
 
-int	stack_push_bottom(t_stack_i *stack, int n)
+int	stack_push_bottom(t_stack_i *stack, long long n)
 {
     if (stack->size == stack->capacity)
     {
-        ft_printf("[ERROR] Stack overflow");
+        ft_printf("[ERROR] Stack overflow\n");
         return (1);
     }
     if (stack->bottom == 0 && stack->size > 0)
@@ -42,9 +42,9 @@ int	stack_push_bottom(t_stack_i *stack, int n)
     return (0);
 }
 
-int	stack_pop(t_stack_i *stack)
+long long	stack_pop(t_stack_i *stack)
 {
-    int value;
+    long long value;
     
     if (stack->size == 0)
     {
@@ -60,9 +60,9 @@ int	stack_pop(t_stack_i *stack)
     return (value);
 }
 
-int	stack_pop_bottom(t_stack_i *stack)
+long long	stack_pop_bottom(t_stack_i *stack)
 {
-    int value;
+    long long value;
     
     if (stack->size == 0)
     {

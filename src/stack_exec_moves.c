@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:05:05 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 15:09:06 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:21:33 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,24 @@ void	stack_execute_move(t_stack_i *stack_a, t_stack_i *stack_b, char *str)
 		ft_printf("[ERROR] Wrong movement\n");
 }
 
+void    stack_execute_move_rep(t_stack_i *stack_a, t_stack_i *stack_b, char *str, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (n == 0)
+		return ;
+	while (i < n)
+	{
+		stack_execute_move(stack_a, stack_b, str);
+		i++;
+	}
+}
+
 void    stack_execute_moves(t_stack_i *stack_a, t_stack_i *stack_b, char *str)
 {
 	char	**strs;
-	int		i;
+	size_t	i;
 	
 	i = 0;
 	strs = ft_split(str, ' ');

@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:04:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/10 15:13:06 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:15:09 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ void    sort(t_stack_i *stack_a, t_stack_i *stack_b)
     (void) stack_a;
     (void) stack_b;
 
+	if (stack_is_sorted(stack_a))
+		return ;
     if (stack_a->size == 2)
         sort_2(stack_a);
     else if (stack_a->size == 3)
-        sort_3(stack_a);
+        sort_3_normalized(stack_a);
+	else
+	{
+		sort_turk(stack_a, stack_b);
+	}
 }

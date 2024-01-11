@@ -72,7 +72,8 @@ LIST_FILES =	ft_lstadd_back_bonus	\
 
 
 MATH_FILES =	ft_maxmin	\
-				ft_pow
+				ft_pow		\
+				ft_abs
 
 STDIO_FILES =	ft_putchar_fd	\
 				ft_putendl_fd	\
