@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:03:18 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 20:26:51 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:23:37 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void    _rotate(t_stack_i *stack, t_rotate_direction direction)
 {
+    if (stack->size < 2)
+        return ;
     if (direction == FORWARD)
         stack_push_bottom(stack, stack_pop(stack));
     else if (direction == REVERSE)

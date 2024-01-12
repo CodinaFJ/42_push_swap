@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:17:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 21:36:17 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:06:43 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			stack_is_empty(t_stack_i *stack);
 int			stack_is_full(t_stack_i *stack);
 void		stack_clear(t_stack_i *stack);
 t_stack_i	*stack_dup(t_stack_i *stack);
+long long	stack_top(const t_stack_i* stack);
 
 /*									STACK OPERATIONS						  */
 
@@ -78,8 +79,8 @@ int			stack_find_index(
 				enum e_bool (*cmp)(int winner, int candidate));
 void		stack_normalize(t_stack_i *stack);
 t_bool		stack_cmp_str(t_stack_i *stack, char *str);
-size_t		stack_min_proxtonbr(t_stack_i *stack, int nbr);
-size_t 		stack_max_proxtonbr(t_stack_i *stack, int nbr);
-size_t		stack_max_indx(t_stack_i *stack);
+size_t		stack_min_proxtonbr(const t_stack_i *stack, int nbr);
+size_t 		stack_max_proxtonbr(const t_stack_i *stack, int nbr);
+size_t		stack_max_indx(const t_stack_i *stack);
 
 #endif

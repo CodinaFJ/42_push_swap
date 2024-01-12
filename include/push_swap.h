@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 21:14:19 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:31:15 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "../lib/ft_printf/ft_printf.h"
 # include "stack.h"
 # include "sort_precomp.h"
+# define CHUNK_SIZE_100 20
+# define CHUNK_SIZE_500 100
 
 /* ************************************************************************** */
 /*   Typedefs															      */
@@ -123,5 +125,6 @@ void    	sort_3(t_stack_i *stack);
 void    	sort_3_normalized(t_stack_i *stack);
 void    	sort_2(t_stack_i *stack);
 void		sort_turk(t_stack_i *stack_a, t_stack_i *stack_b);
+void    	sort_split(t_stack_i *stack_a, t_stack_i *stack_b, size_t chunk_size);
 
 #endif

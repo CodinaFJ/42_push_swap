@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:24:17 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 21:18:55 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:06:35 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,14 @@ void    stack_free(t_stack_i *stack)
 	if (stack->array != NULL)
 		free(stack->array);
 	free(stack);
+}
+
+long long	stack_top(const t_stack_i* stack)
+{
+	size_t	index;
+
+	index = (stack->bottom + stack->size - 1) % stack->capacity;
+	return (stack->array[index]);
 }
 
 int stack_is_empty(t_stack_i* stack)

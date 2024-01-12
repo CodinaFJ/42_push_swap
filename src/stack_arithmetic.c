@@ -6,13 +6,13 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:59:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 21:40:06 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:25:22 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/stack.h"
 
-size_t	stack_min_indx(t_stack_i *stack)
+size_t	stack_min_indx(const t_stack_i *stack)
 {
 	size_t		i;
 	size_t		index_norm;
@@ -34,7 +34,7 @@ size_t	stack_min_indx(t_stack_i *stack)
 	return (min_index);
 }
 
-size_t	stack_max_indx(t_stack_i *stack)
+size_t	stack_max_indx(const t_stack_i *stack)
 {
 	size_t		i;
 	size_t		index_norm;
@@ -56,7 +56,7 @@ size_t	stack_max_indx(t_stack_i *stack)
 	return (max_index);
 }
 
-size_t stack_min_proxtonbr(t_stack_i *stack, int nbr)
+size_t stack_min_proxtonbr(const t_stack_i *stack, int nbr)
 {
 	size_t		i;
 	size_t		index_norm;
@@ -81,7 +81,7 @@ size_t stack_min_proxtonbr(t_stack_i *stack, int nbr)
 	return (min_index - stack->bottom);
 }
 
-size_t stack_max_proxtonbr(t_stack_i *stack, int nbr)
+size_t stack_max_proxtonbr(const t_stack_i *stack, int nbr)
 {
 	size_t		i;
 	size_t		index_norm;
@@ -102,7 +102,7 @@ size_t stack_max_proxtonbr(t_stack_i *stack, int nbr)
 		}
 		i++;
 	}
-	//ft_printf("Max prox to nbr %d = %d (%d)\n", nbr, max_index - stack->bottom, stack->array[max_index % stack->capacity]);
+	//ft_printf("Max prox to nbr %d -> %d (index %d)\n", nbr, stack->array[max_index % stack->capacity], max_index - stack->bottom);
 	return (max_index - stack->bottom);
 }
 

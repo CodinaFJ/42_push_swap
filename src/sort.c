@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:04:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 21:15:09 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:29:46 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,12 @@ void    sort(t_stack_i *stack_a, t_stack_i *stack_b)
         sort_2(stack_a);
     else if (stack_a->size == 3)
         sort_3_normalized(stack_a);
-	else
-	{
+	else if (stack_a->size < 99)
 		sort_turk(stack_a, stack_b);
+	else if (stack_a->size < 499)
+	{
+		sort_split(stack_a, stack_b, CHUNK_SIZE_100);
 	}
+	else
+		sort_split(stack_a, stack_b, CHUNK_SIZE_500);
 }

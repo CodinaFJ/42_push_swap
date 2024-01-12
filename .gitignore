@@ -53,3 +53,7 @@ dkms.conf
 
 #VSCode
 .vscode/
+
+
+#visualizer
+push_swap_visualizer/

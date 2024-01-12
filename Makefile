@@ -33,6 +33,7 @@ FILES	=	main					\
 			input_assert			\
 			sort					\
 			sort_turk				\
+			sort_split				\
 			sort_precomp			\
 			stack_arithmetic		\
 			stack					\
