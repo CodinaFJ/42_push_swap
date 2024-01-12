@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:47:07 by jcodina-          #+#    #+#             */
-/*   Updated: 2023/01/26 15:22:46 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:51:56 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
  * Adds given new node to the front of given list lst.
  * @param lst Pointer to first node in list where to add the new node.
  * @param new Node to add
- * @warning t_list **lst needs to be initialized first. In case of empty list please do "lst = NULL" before.
+ * @warning t_list **lst needs to be initialized first. In case of empty
+ * list please do "lst = NULL" before.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:19:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/08 15:20:10 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:53:12 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long long	ft_atol(const char *nptr)
 {
-	size_t	        i;
-	char	        neg;
+	size_t			i;
+	char			neg;
 	long long		num;
 
 	i = 0;

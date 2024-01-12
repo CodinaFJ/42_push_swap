@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strscpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcodina- <fjavier.codina@gmail.com>        +#+  +:+       +#+        */
+/*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:47:04 by jcodina-          #+#    #+#             */
-/*   Updated: 2023/12/31 14:47:04 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:57:35 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_strscpy(char **dst, const char **src)
 void	ft_strsncpy(char **dst, char **src, int row)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < row)

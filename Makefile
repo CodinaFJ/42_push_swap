@@ -3,7 +3,7 @@
 #		PROJECT: push_swap																#\
 #########################################################################################
 
-NAME = $(BIN_DIR)push_swap.out
+NAME = $(BIN_DIR)push_swap
 
 CC	= cc
 CFLAGS = -Wall -Wextra -Werror
@@ -33,10 +33,13 @@ FILES	=	main					\
 			input_assert			\
 			sort					\
 			sort_turk				\
-			sort_split				\
+			sort_turk_exec_moves	\
+			sort_turk_calc_moves	\
+			sort_chunks				\
 			sort_precomp			\
 			stack_arithmetic		\
 			stack					\
+			stack_info				\
 			stack_operations		\
 			stack_rotate			\
 			stack_pushswap			\

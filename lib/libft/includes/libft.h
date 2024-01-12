@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:11:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 18:19:23 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:59:01 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ enum e_capital_letters
 /*									ARRAY								*/
 
 void			ft_arrset(int *arr, const int d, const unsigned int len);
-void			ft_arrsetl(long long *arr, const long long d, const unsigned int len);
+void			ft_arrsetl(long long *arr, const long long d,
+					const unsigned int len);
 
 /*									CHAR_TYPE								*/
 
@@ -66,13 +67,17 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstlast(t_list *lst);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *));
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
-int				ft_lst_exists(t_list *lst, void *content, int (*compare)(void *, void *));
-void			*ft_lst_remove(t_list **lst, void *content, int (*compare)(void *, void *));
+int				ft_lst_exists(t_list *lst, void *content,
+					int (*compare)(void *, void *));
+void			*ft_lst_remove(t_list **lst, void *content,
+					int (*compare)(void *, void *));
 void			*ft_lst_remove_at(t_list **lst, int index);
-void			ft_lst_remove_all(t_list **lst, void *content, int (*compare)(void *, void *), void (*del)(void *));
+void			ft_lst_remove_all(t_list **lst, void *content,
+					int (*compare)(void *, void *), void (*del)(void *));
 t_list			*ft_lst_dup(t_list *lst_src, void *(*dup)(void *));
 
 /*									MATH									*/
@@ -115,7 +120,7 @@ void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_memrchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
-void			*ft_memccpy(void *dest, const void *src, int c, size_t n);//NOK
+void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strchr(const char *s, int c);
@@ -138,13 +143,14 @@ char			**ft_split(char const *s, char c);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-/*								STRINGS MATRIX									*/
+/*								STRINGS MATRIX								*/
 
 unsigned int	ft_strs_cols(const char **strs);
 unsigned int	ft_strs_rows(const char **strs);
 int				ft_strs_colcmp(char **strs, int col_a, int col_b);
 int				ft_strs_rowcmp(char **strs, int row_a, int row_b);
-char			*ft_strschr(const char **strs, const char c, int *row_out, int *col_out);
+char			*ft_strschr(const char **strs, const char c,
+					int *row_out, int *col_out);
 void			ft_strscpy(char **dst, const char **src);
 void			ft_strsncpy(char **dst, char **src, int row);
 char			*ft_strs_add_line(const char *str, char **strs);

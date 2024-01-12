@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_cols.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcodina- <fjavier.codina@gmail.com>        +#+  +:+       +#+        */
+/*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:46:52 by jcodina-          #+#    #+#             */
-/*   Updated: 2023/12/31 13:46:52 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:57:21 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
 /**
- * Calculates the number of columns of a constant columns length matrix of strings.
+ * Calculates the number of columns of a constant columns length matrix of
+ * strings.
 */
 unsigned int	ft_strs_cols(const char **strs)
 {

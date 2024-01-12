@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_removeall.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcodina- <fjavier.codina@gmail.com>        +#+  +:+       +#+        */
+/*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:23:05 by jcodina-          #+#    #+#             */
-/*   Updated: 2023/12/31 15:23:05 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:51:30 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
 /**
- * Removes all nodes in list that makes the (*compare)(void *, void *) function return 1.
+ * Removes all nodes in list that makes the (*compare)(void *, void *)
+ * function return 1.
  * Removed nodes and content are freed using del function.
  * @param lst List where to remove node with content specified
  * @param content Content searched in lst to be removed.
  * @param compare Function used to check if content is in list.
  * @param del Function used to free content from removed nodes.
 */
-void	ft_lst_remove_all(t_list **lst, void *content, int (*compare)(void *, void *), void (*del)(void *))
+void	ft_lst_remove_all(t_list **lst, void *content,
+			int (*compare)(void *, void *), void (*del)(void *))
 {
 	t_list	*node_prev;
 	t_list	*node;

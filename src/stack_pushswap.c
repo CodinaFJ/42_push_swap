@@ -6,17 +6,17 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:23:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/11 17:45:04 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:36:47 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void    _swap(t_stack_i *stack)
+static void	_swap(t_stack_i *stack)
 {
 	long long	aux_value;
-	long long   second_top;
-	
+	long long	second_top;
+
 	if (stack->size < 2)
 		return ;
 	if (stack->top == 0)
@@ -28,20 +28,20 @@ static void    _swap(t_stack_i *stack)
 	stack->array[second_top] = aux_value;
 }
 
-void    swap(t_stack_i *stack)
+void	swap(t_stack_i *stack)
 {
 	ft_printf("s%c\n", stack->id);
 	_swap(stack);
 }
 
-void    sswap(t_stack_i *stack_a, t_stack_i *stack_b)
+void	sswap(t_stack_i *stack_a, t_stack_i *stack_b)
 {
 	ft_printf("ss\n");
 	_swap(stack_a);
 	_swap(stack_b);
 }
 
-void    push(t_stack_i *stack_dst, t_stack_i *stack_src)
+void	push(t_stack_i *stack_dst, t_stack_i *stack_src)
 {
 	ft_printf("p%c\n", stack_dst->id);
 	if (stack_is_empty(stack_src))

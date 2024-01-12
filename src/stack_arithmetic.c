@@ -6,63 +6,19 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:59:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 13:25:22 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:39:21 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/stack.h"
 
-size_t	stack_min_indx(const t_stack_i *stack)
+size_t	stack_min_proxtonbr(const t_stack_i *stack, int nbr)
 {
 	size_t		i;
 	size_t		index_norm;
 	size_t		min_index;
 	long long	min;
-	
-	i = 0;
-	min = LONG_MAX;
-	while (i < stack->size)
-	{
-		index_norm = (stack->bottom + i) % stack->capacity;
-		if (stack->array[index_norm] < min)
-		{
-			min  = stack->array[index_norm];
-			min_index = stack->bottom + i;
-		}
-		i++;
-	}
-	return (min_index);
-}
 
-size_t	stack_max_indx(const t_stack_i *stack)
-{
-	size_t		i;
-	size_t		index_norm;
-	size_t		max_index;
-	long long	max;
-	
-	i = 0;
-	max = -1;
-	while (i < stack->size)
-	{
-		index_norm = (stack->bottom + i) % stack->capacity;
-		if (stack->array[index_norm] > max)
-		{
-			max  = stack->array[index_norm];
-			max_index = stack->bottom + i;
-		}
-		i++;
-	}
-	return (max_index);
-}
-
-size_t stack_min_proxtonbr(const t_stack_i *stack, int nbr)
-{
-	size_t		i;
-	size_t		index_norm;
-	size_t		min_index;
-	long long	min;
-	
 	i = 0;
 	min_index = stack_max_indx(stack);
 	min = stack->array[min_index % stack->capacity];
@@ -77,17 +33,16 @@ size_t stack_min_proxtonbr(const t_stack_i *stack, int nbr)
 		}
 		i++;
 	}
-	//ft_printf("Min prox to nbr %d = %d (%d)\n", nbr, min_index - stack->bottom, stack->array[min_index % stack->capacity]);
 	return (min_index - stack->bottom);
 }
 
-size_t stack_max_proxtonbr(const t_stack_i *stack, int nbr)
+size_t	stack_max_proxtonbr(const t_stack_i *stack, int nbr)
 {
 	size_t		i;
 	size_t		index_norm;
 	size_t		max_index;
 	long long	max;
-	
+
 	i = 0;
 	max_index = stack_min_indx(stack);
 	max = stack->array[max_index % stack->capacity];
@@ -102,7 +57,6 @@ size_t stack_max_proxtonbr(const t_stack_i *stack, int nbr)
 		}
 		i++;
 	}
-	//ft_printf("Max prox to nbr %d -> %d (index %d)\n", nbr, stack->array[max_index % stack->capacity], max_index - stack->bottom);
 	return (max_index - stack->bottom);
 }
 
@@ -149,7 +103,7 @@ void	stack_normalize(t_stack_i *stack)
 	size_t		i;
 	size_t		index_norm;
 	long long	*norm_array;
-	
+
 	norm_array = ft_calloc(stack->capacity, sizeof(long long));
 	if (norm_array == NULL)
 		return ;
@@ -158,7 +112,9 @@ void	stack_normalize(t_stack_i *stack)
 	while (i < stack->size)
 	{
 		index_norm = (stack->bottom + i) % stack->capacity;
-		norm_array[index_norm] = how_many_lower(stack, stack->array[index_norm]);
+		norm_array[index_norm] = how_many_lower(
+				stack,
+				stack->array[index_norm]);
 		i++;
 	}
 	free(stack->array);

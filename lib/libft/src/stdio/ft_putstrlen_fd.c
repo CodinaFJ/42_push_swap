@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:45:54 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/03 08:50:25 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:52:40 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
  */
 int	ft_putstrlen_fd(char *s, int fd)
 {
-	
 	int	i;
 
 	i = 0;
