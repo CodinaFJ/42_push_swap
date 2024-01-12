@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:52:12 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 13:31:15 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:44:50 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "../lib/ft_printf/ft_printf.h"
 # include "stack.h"
 # include "sort_precomp.h"
-# define CHUNK_SIZE_100 20
-# define CHUNK_SIZE_500 100
+# define CHUNK_SIZE_100 30
+# define CHUNK_SIZE_500 150
 
 /* ************************************************************************** */
 /*   Typedefs															      */
