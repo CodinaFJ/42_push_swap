@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:14:42 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 16:17:32 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:20:27 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ t_bool	assert_no_repeated(t_stack_i *norm_stack)
 
 	i = 0;
 	seen = ft_calloc(norm_stack->size, sizeof(t_bool));
+	if (seen == NULL)
+		return (false);
 	ft_bzero(seen, norm_stack->size * sizeof(t_bool));
 	while (i < norm_stack->size)
 	{
@@ -63,5 +65,6 @@ t_bool	assert_no_repeated(t_stack_i *norm_stack)
 			seen[norm_stack->array[index]] = true;
 		i++;
 	}
+	free(seen);
 	return (true);
 }

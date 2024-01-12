@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:44:56 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 16:16:14 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:20:47 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ char	***input_parse(int argc, char **argv, size_t *size_nums)
 	{
 		input[i] = ft_split(argv[i + 1], ' ');
 		if (input[i] == NULL)
+		{
+			input_free(input);
 			exit_error(MEMORY, "Error");
+		}
 		else if (!assert_is_numbers(input[i]))
 		{
 			input_free(input);

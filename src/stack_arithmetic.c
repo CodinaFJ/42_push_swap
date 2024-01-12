@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 10:59:16 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 17:39:21 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:39:41 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,13 @@ t_bool	stack_cmp_str(t_stack_i *stack, char *str)
 	{
 		index_norm = (stack->bottom + stack->size - i - 1) % stack->capacity;
 		if (stack->array[index_norm] != strs[i][0] - '0')
+		{
+			ft_strs_free(strs);
 			return (false);
+		}
 		i++;
 	}
+	ft_strs_free(strs);
 	return (true);
 }
 
