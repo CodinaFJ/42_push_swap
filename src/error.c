@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:50:24 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 18:36:02 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:43:07 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	exit_error_free_stacks(t_error error_type, char *msg,
 			t_stack_i *stack_a, t_stack_i *stack_b)
 {
-	stack_free(&stack_a);
-	stack_free(&stack_b);
+	stack_free(stack_a);
+	stack_free(stack_b);
 	exit_error(error_type, msg);
 }
 
