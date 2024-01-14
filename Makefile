@@ -108,4 +108,4 @@ re: fclean all
 norminette:
 	norminette $(SRC_DIR)
 
-.PHONY: all bonus clean fclean re server client norminette
+.PHONY: all clean fclean re norminette
