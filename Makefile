@@ -4,12 +4,13 @@
 #########################################################################################
 
 NAME = $(BIN_DIR)push_swap
+BONUS = $(BIN_DIR)checker
 
 CC	= cc
-CFLAGS = -Wall -Wextra -Werror
-LIBFT_PATH = ./lib/libft/bin/
+CFLAGS = -Wall -Wextra -Werror -g
+LIBFT_PATH = ./lib/libft/
 FT_PRINTF_PATH = ./lib/ft_printf/
-LIBFT = $(LIBFT_PATH)libft.a
+LIBFT = $(LIBFT_PATH)bin/libft.a
 FT_PRINTF = $(FT_PRINTF_PATH)libftprintf.a
 AR = ar rcs
 RM = rm -rf
@@ -49,6 +50,31 @@ SRCS	=	$(addsuffix .c, $(FILES))
 OBJS	=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 ########################################################################################\
+Checker sources & objects
+########################################################################################
+
+B_FILES	=	checker_bonus			\
+			error					\
+			input					\
+			input_assert			\
+			sort					\
+			sort_turk				\
+			sort_turk_exec_moves	\
+			sort_turk_calc_moves	\
+			sort_chunks				\
+			sort_precomp			\
+			stack_arithmetic		\
+			stack					\
+			stack_info				\
+			stack_operations		\
+			stack_rotate_bonus		\
+			stack_pushswap_bonus	\
+			stack_exec_moves
+
+B_SRCS	=	$(addsuffix .c, $(B_FILES))
+B_OBJS	=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(B_FILES)))
+
+########################################################################################\
 Colors
 ########################################################################################
 
@@ -66,7 +92,7 @@ END = 		\033[0m
 Rules
 ########################################################################################
 
-all: libft ft_printf $(NAME)
+all: libft ft_printf $(NAME) bonus
 
 libft: $(LIBFT)
 
@@ -87,13 +113,19 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 	@echo "$(Y)Compiling: $< $(DEF_COLOR)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	@$(RM) $(OBJS)
+bonus: libft ft_printf $(BONUS)
+
+$(BONUS): $(B_OBJS)
+	@$(CC) $(B_OBJS) $(LIBFT) $(FT_PRINTF) -o $@
+	@echo "\n$(G)Checker bonus compilation finished!$(DEF_COLOR)-> $(BONUS)\n"
+
+clean: clean_libs
+	@$(RM) $(OBJS) $(B_OBJS)
 	@echo "$(R)[$(NAME)] All $(OBJ_DIR)*.o files removed$(DEF_COLOR)\n"
 
-fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(R)Push swap binary removed$(DEF_COLOR)\n"
+fclean: clean fclean_libs
+	@$(RM) $(NAME) $(BONUS)
+	@echo "$(R)Push swap binaries removed$(DEF_COLOR)\n"
 
 clean_libs:
 	@make clean -C $(LIBFT_PATH)

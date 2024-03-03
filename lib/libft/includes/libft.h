@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:11:23 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 17:59:01 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:50:06 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+# include "../src/get_next_line/get_next_line.h"
 
 /* ************************************************************************** */
 /*   Typedefs															      */

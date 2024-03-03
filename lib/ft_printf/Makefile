@@ -75,12 +75,10 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@make clean -C $(LIBFT_PATH)
 	@$(RM) $(OBJS) $(BOBJS)
 	@echo "$(R)All .o files removed$(DEF_COLOR)\n"
 
 fclean: clean
-	@make fclean -C $(LIBFT_PATH)
 	@$(RM) $(NAME)
 	@echo "$(R)Library .a file removed$(DEF_COLOR)\n"
 

@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:44:56 by jcodina-          #+#    #+#             */
-/*   Updated: 2024/01/12 18:20:47 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/03/03 19:12:33 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	extract_valid_input(int argc, char **argv,
 
 	if (argc == 1)
 		exit(1);
+	size = 0;
 	input = input_parse(argc, argv, &size);
 	*stack_a = input_to_stack(input, size);
 	stack_normalize(*stack_a);

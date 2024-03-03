@@ -6,7 +6,7 @@
 /*   By: jcodina- <jcodina-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:26:02 by jcodina-          #+#    #+#             */
-/*   Updated: 2023/01/26 15:22:33 by jcodina-         ###   ########.fr       */
+/*   Updated: 2024/03/03 19:48:23 by jcodina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	j = ft_strlen(s1) - 1;
+	if (ft_strlen(s1) == 0)
+		return (NULL);
 	get_trim_indexes(s1, set, &i, &j);
 	if (j < i)
 	{

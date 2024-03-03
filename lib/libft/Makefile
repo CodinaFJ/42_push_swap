@@ -26,15 +26,17 @@ STDIO_DIR =		stdio/
 STDLIB_DIR =	stdlib/
 STRING_DIR =	string/
 STRMTRX_DIR =	strsmatrix/
+GNL_DIR =		get_next_line/
 
 BIN_DIRS	=	$(addprefix $(BIN_DIR), $(ARRAY_DIR))		\
-				$(addprefix $(BIN_DIR), $(STRMTRX_DIR))	\
+				$(addprefix $(BIN_DIR), $(STRMTRX_DIR))		\
 				$(addprefix $(BIN_DIR), $(CTYPE_DIR))		\
 				$(addprefix $(BIN_DIR), $(LIST_DIR))		\
 				$(addprefix $(BIN_DIR), $(MATH_DIR))		\
 				$(addprefix $(BIN_DIR), $(STDIO_DIR))		\
 				$(addprefix $(BIN_DIR), $(STDLIB_DIR))		\
 				$(addprefix $(BIN_DIR), $(STRING_DIR))		\
+				$(addprefix $(BIN_DIR), $(GNL_DIR))			\
 
 
 ########################################################################################\
@@ -130,6 +132,9 @@ STRSMTRX_FILES =	ft_strs_add_line	\
 					ft_strs_free		\
 					ft_strsdup
 
+GNL_FILES =	get_next_line		\
+			get_next_line_utils
+
 
 FILES	=	$(addprefix $(CTYPE_DIR), $(CTYPE_FILES))		\
 			$(addprefix $(ARRAY_DIR), $(ARRAY_FILES))		\
@@ -138,7 +143,8 @@ FILES	=	$(addprefix $(CTYPE_DIR), $(CTYPE_FILES))		\
 			$(addprefix $(STDIO_DIR), $(STDIO_FILES))		\
 			$(addprefix $(STDLIB_DIR), $(STDLIB_FILES))		\
 			$(addprefix $(STRING_DIR), $(STRING_FILES))		\
-			$(addprefix $(STRMTRX_DIR), $(STRSMTRX_FILES))
+			$(addprefix $(STRMTRX_DIR), $(STRSMTRX_FILES))	\
+			$(addprefix $(GNL_DIR), $(GNL_FILES))
 		
 SRCS	=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(FILES)))
 OBJS	=	$(addprefix $(BIN_DIR), $(addsuffix .o, $(FILES)))
